@@ -88,11 +88,12 @@ We strongly encourage all governments to be much more transparent about all prog
 <script>
 (function (search) {
     var placeholder = /\[Company\]/g;
+    var plus = /[\+]/g;
     var statementElement = document.getElementById('statement');
     var companyName = search.split('=')[1];
 
     if (companyName) {
-        statementElement.innerHTML = statementElement.innerHTML.replace(placeholder, companyName)
+        statementElement.innerHTML = statementElement.innerHTML.replace(placeholder, unescape(companyName).replace(plus, ' '));
     }
 })(window.location.search);
 </script>
