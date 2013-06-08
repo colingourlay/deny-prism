@@ -94,11 +94,12 @@ We strongly encourage all governments to be much more transparent about all prog
 (function (search) {
     var placeholder = /\[Company\]/g;
     var plus = /[\+]/g;
+    var openingTag = /</g;
     var statementElement = document.getElementById('statement');
     var companyName = search.split('=')[1];
 
     if (companyName) {
-        statementElement.innerHTML = statementElement.innerHTML.replace(placeholder, unescape(companyName).replace(plus, ' '));
+        statementElement.innerHTML = statementElement.innerHTML.replace(placeholder, unescape(companyName).replace(plus, ' ').replace(openingTag, '&lt;'));
     }
 })(window.location.search);
 </script>
