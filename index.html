@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+    <title>Deny PRISM - Your company's one-stop PRISM involvement denial statement generator</title>
+</head>
+<body>
+<style>
+    body {
+        margin: 0;
+        color: #222;
+        background-color: #EEE;
+        font-size: 16px;
+        font-family: sans-serif;
+    }
+    h1 {
+        font-size: 2em;
+        margin: 0;
+    }
+    a, a:hover, a:active, a:visited {
+        color: #99C;
+    }
+    code {
+        display: block;
+        padding: 1em;
+    }
+    input, button {
+        border: 1px solid #CCC;
+        padding: 0.5em;
+        font-size: 1em;
+    }
+    input {
+        width: 64%;
+    }
+    button {
+        width: 30%;
+        border-left: 0 none;
+        cursor: pointer;
+        background-color: #EEE;
+    }
+    button:hover {
+        background-color: #DDD;
+    }
+    .content {
+        margin: 2em auto;
+        padding: 1em;
+        max-width: 40em;
+        min-width: 20em;
+        background-color: #FFF
+    }
+    .statement {
+        display: block;
+        border: 0.25em dotted #CCC;
+        padding: 1em;
+        font-size: 0.75em;
+        font-family: monospace;
+    }
+    .about {
+        color: #AAA;
+        font-size: 0.85em;
+    }
+</style>
+<div class="content">
+    <h1>Deny PRISM</h1>
+    <p>Your company's one-stop <a href="http://en.wikipedia.org/wiki/PRISM_(surveillance_program)">PRISM</a> involvement <a href="http://googleblog.blogspot.com/2013/06/what.html">denial</a> <a href="https://www.facebook.com/zuck/posts/10100828955847631">statement</a> generator.<p>
+    <form method="get" action=".">
+        <input name="company" type="text" placeholder="Company name" /><button type="submit">Generate</button>
+    </form>
+    <p>Here's your statement:</p>
+    <div class="statement" id="statement">
+Dear [Company] users,
+<br />
+<br />
+You may be aware of reports alleging that [Company] and several other Internet companies have joined a secret U.S. government program called PRISM to give the National Security Agency direct access to our servers. We would like to respond to the press reports, and give you the facts.
+<br />
+<br />
+[Company] is not and has never been part of any program to give the US or any other government direct access to our servers. We have never received a blanket request or court order from any government agency asking for information or metadata in bulk, like the one Verizon reportedly received. We hadn't even heard of PRISM before yesterday.
+<br />
+<br />
+When governments ask [Company] for data, we review each request carefully to make sure they always follow the correct processes and all applicable laws, and then only provide the information if is required by law. We will continue fighting aggressively to keep your information safe and secure. Any suggestion that [Company] is disclosing information about our users’ Internet activity on such a scale is completely false.
+<br />
+<br />
+We strongly encourage all governments to be much more transparent about all programs aimed at keeping the public safe. It's the only way to protect everyone's civil liberties and create the safe and free society we all want over the long term. We here at [Company] understand that the U.S. and other governments need to take action to protect their citizens’ safety—including sometimes by using surveillance. But the level of secrecy around the current legal procedures undermines the freedoms we all cherish.
+    </div>
+    <div class="about">
+        <p>Created by <a href="http://colin-gourlay.com/">Colin Gourlay</a> because he had nothing to better to do.</p>
+    </div>
+</div>
+<script>
+(function (search) {
+    var placeholder = /\[Company\]/g;
+    var statementElement = document.getElementById('statement');
+    var companyName = search.split('=')[1];
+
+    if (companyName) {
+        statementElement.innerHTML = statementElement.innerHTML.replace(placeholder, companyName)
+    }
+})(window.location.search);
+</script>
+</body>
+</html>
